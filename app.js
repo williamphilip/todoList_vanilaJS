@@ -149,6 +149,13 @@ function deleteTodoLocalStorage(deletedElement) {
 // function menghapus semua list secara bersamaan
 function clearTodos() {
   todoList.innerHTML = "";
+
+  clearTodosLocalStorage();
+}
+
+// function menghapus todos local storage
+function clearTodosLocalStorage() {
+  localStorage.clear();
 }
 
 // function untuk memfilter list menggunakan method indexOf

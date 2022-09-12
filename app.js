@@ -180,8 +180,6 @@ function filterTodos(e) {
 
 }
 
-// function untuk mengambil todos / get todos
-
 
 
 

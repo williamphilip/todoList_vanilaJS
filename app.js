@@ -124,8 +124,26 @@ function deleteTodo(event) {
     if(confirm("Apakah yakin akan menghapus?")) {
         const parent = event.target.parentElement;
         parent.remove();
+
+        deleteTodoLocalStorage(parent);
     }
   }
+}
+
+// Function menghapus todo di Local Storage
+function deleteTodoLocalStorage(deletedElement) {
+  const todos = getItemFromLocalStorage(); // menghapus/mengambil element dalam todo (li) dari localstorage
+
+  // merubah value dengan menghapus data yang sudah kita ambil
+  todos.forEach((todo, index) => {
+    if (deletedElement.firstChild.textContent === todo) {
+      todos.splice(index, 1);
+    }
+  });
+
+  // mengembalikan data yang sudah kita ubah ke local storage kembali
+  localStorage.setItem("todos", JSON.stringify(todos));
+
 }
 
 // function menghapus semua list secara bersamaan
